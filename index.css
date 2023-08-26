@@ -1,0 +1,95 @@
+:root {
+    --soft-blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --bg-main-dark: hsl(217, 54%, 11%);
+    --bg-card-dark: hsl(216, 50%, 16%);
+    --line-dark: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+}
+
+@font-face {
+    font-family: "Outfit";
+    src: url("/fonts/Outfit-Medium.ttf");
+    src: url("/fonts/Outfit-SemiBold.ttf");
+    src: url("/fonts/Outfit-Light.ttf");
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+}
+
+main {
+    background-color: var(--bg-main-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section {
+    background-color: var(--bg-card-dark);
+    margin: auto;
+    padding: 24px;
+    width: 300px;
+    border-radius: 1rem;
+}
+
+.details, .details > div {
+    display: flex;
+    align-items: center;
+}
+
+.details {
+    justify-content: space-between;
+}
+
+.details>div{
+    gap: 4px;
+}
+
+.dim {
+    color: var(--soft-blue);
+}
+
+.effect {
+    color: var(--white);
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: var(--soft-blue);
+    margin: 12px auto;
+}
+
+hr + div {
+    display: flex;
+    align-items: center;
+}
+
+img[alt="image-equilibrium"]{
+    width: 100%;
+    border-radius: inherit;
+}
+
+img[alt="image-avatar"] {
+    height: 30px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+header {
+    margin-top: 18px;
+}
+
+header + p {
+    margin: 14px 0;
+}
+
+p {
+    margin: 0;
+}

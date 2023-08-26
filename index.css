@@ -18,7 +18,7 @@ body {
     margin: 0;
     font-size: 16px;
     font-family: "Outfit", sans-serif;
-    font-weight: 300;
+    min-height: 100vh;
 }
 
 main {
@@ -33,20 +33,23 @@ section {
     background-color: var(--bg-card-dark);
     margin: auto;
     padding: 24px;
-    width: 300px;
+    width: min(300px, 100%);
+    box-sizing: border-box;
     border-radius: 1rem;
 }
 
-.details, .details > div {
+.details,
+.details>div {
     display: flex;
     align-items: center;
 }
 
 .details {
     justify-content: space-between;
+    font-weight: 600;
 }
 
-.details>div{
+.details>div {
     gap: 4px;
 }
 
@@ -65,14 +68,59 @@ hr {
     margin: 12px auto;
 }
 
-hr + div {
+hr+div {
     display: flex;
     align-items: center;
 }
 
-img[alt="image-equilibrium"]{
-    width: 100%;
+img[alt="image-equilibrium"] {
     border-radius: inherit;
+    position: relative;
+    width: inherit;
+}
+
+.image-container {
+    position: relative;
+    border-radius: inherit;
+    width: calc(300px - 24px * 2);
+    height: calc(300px - 24px * 2);
+    cursor: pointer;
+}
+
+.image-container::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--cyan);
+    content: "";
+    z-index: 1;
+    opacity: 0;
+}
+
+.image-container::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    content: "";
+    z-index: 1;
+    opacity: 0;
+    background-image: url('images/icon-view.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-container:hover::before {
+    opacity: 0.4;
+}
+
+.image-container:hover::after {
+    opacity: 1;
 }
 
 img[alt="image-avatar"] {
@@ -83,13 +131,33 @@ img[alt="image-avatar"] {
 }
 
 header {
-    margin-top: 18px;
+    font-weight: 600;
+    font-size: 20px;
 }
 
-header + p {
+header+p {
     margin: 14px 0;
 }
 
 p {
     margin: 0;
+}
+
+section>header,
+section>p,
+section>.details,
+section>hr {
+    margin-top: 24px;
+}
+
+footer {
+    color: var(--line-dark);
+    filter: brightness(2);
+    text-align: center;
+    padding: 4px;
+}
+
+.effect:hover {
+    color: var(--cyan);
+    cursor: pointer;
 }
